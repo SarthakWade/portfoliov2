@@ -1,0 +1,56 @@
+[
+    {
+      "section": "Frontend",
+      "items": [
+        { "name": "HTML", "logo": "/assets/langs/html.png", "dominantColor": "#FC573B" },
+        { "name": "CSS", "logo": "/assets/langs/css.png", "dominantColor": "#2965F1" },
+        { "name": "JavaScript", "logo": "/assets/langs/js.png", "dominantColor": "#F7DF1E" }, 
+        { "name": "TypeScript", "logo": "/assets/langs/typescript.png", "dominantColor": "#3178C6" },
+        { "name": "React", "logo": "/assets/langs/react.png", "dominantColor": "#61DBFB" },
+        {"name":"Vite", "logo": "/assets/langs/vite.png", "dominantColor": "#FFD700"},
+        { "name": "Tailwind", "logo": "/assets/langs/tailwind.png", "dominantColor": "#38BDF8" },
+        { "name": "Figma", "logo": "/assets/langs/figma.png", "dominantColor": "#F24E1E" },
+        { "name": "Flutter", "logo": "/assets/langs/flutter.png", "dominantColor": "#02569B" },
+        { "name": "Expo", "logo": "/assets/langs/expo.png", "dominantColor": "#efefef" }
+      ]
+    },
+    {
+      "section": "Backend",
+      "items": [
+        { "name": "Node.js", "logo": "/assets/langs/node.png", "dominantColor": "#339933" },
+        { "name": "Express", "logo": "/assets/langs/express.png", "dominantColor": "#b0c1d4" },
+        { "name": "Flask", "logo": "/assets/langs/flask.png", "dominantColor": "#eeeade" },
+        { "name": "Java", "logo": "/assets/langs/java.png", "dominantColor": "#E76F00" },
+        { "name": "C", "logo": "/assets/langs/c.png", "dominantColor": "#283593" },
+        { "name": "C++", "logo": "/assets/langs/cpp.png", "dominantColor": "#00599C" }
+      ]
+    },
+    {
+      "section": "AI / ML",
+      "items": [
+        { "name": "Python", "logo": "/assets/langs/python.png", "dominantColor": "#3776AB" },
+        { "name": "PyTorch", "logo": "/assets/langs/pytorch.png", "dominantColor": "#EE4C2C" },
+        { "name": "TensorFlow", "logo": "/assets/langs/tensorflow.png", "dominantColor": "#FF6F00" },
+        { "name": "OpenCV", "logo": "/assets/langs/opencv.png", "dominantColor": "#5C3EE8" }
+      ]
+    },
+    {
+      "section": "Databases",
+      "items": [
+        { "name": "MongoDB", "logo": "/assets/langs/mongodb.png", "dominantColor": "#47A248" },
+        { "name": "MySQL", "logo": "/assets/langs/mysql.png", "dominantColor": "#4479A1" }
+      ]
+    },
+    {
+      "section": "DevOps & Tools",
+      "items": [
+        { "name": "Git", "logo": "/assets/langs/git.png", "dominantColor": "#F05032" },
+        { "name": "Docker", "logo": "/assets/langs/docker.png", "dominantColor": "#2496ED" },
+        { "name": "Postman", "logo": "/assets/langs/postman.png", "dominantColor": "#FF6C37" },
+        { "name": "Chart.js", "logo": "/assets/langs/chartjs.png", "dominantColor": "#FF6384" },
+        { "name": "Linux", "logo": "/assets/langs/linux.png", "dominantColor": "#FCC624" },
+        { "name": "Raspberry Pi", "logo": "/assets/langs/raspberrypi.png", "dominantColor": "#C51A4A" },
+        { "name": "Arduino", "logo": "/assets/langs/arduino.png", "dominantColor": "#00979D" }
+      ]
+    }
+  ]

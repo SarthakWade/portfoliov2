@@ -1,0 +1,89 @@
+[
+    {
+        "section": "Full Stack",
+        "items": [
+            {
+                "name": "HTML",
+                "logo": "/assets/langs/html.png",
+                "dominantColor": "#FC573B"
+            },
+            {
+                "name": "CSS",
+                "logo": "/assets/langs/css.png",
+                "dominantColor": "#2965F1"
+            },
+            {
+                "name": "JavaScript",
+                "logo": "/assets/langs/js.png",
+                "dominantColor": "#F7DF1E"
+            },
+
+            {
+                "name": "TypeScript",
+                "logo": "/assets/langs/typescript.png",
+                "dominantColor": "#3178C6"
+            },
+
+            {
+                "name": "React",
+                "logo": "/assets/langs/react.png",
+                "dominantColor": "#61DBFB"
+            },
+
+            {
+                "name":"Vite",
+                "logo": "/assets/langs/vite.png",
+                "dominantColor": "#FFD700"
+            },
+            
+            {
+                "name": "Tailwind",
+                "logo": "/assets/langs/tailwind.png",
+                "dominantColor": "#38BDF8"
+            },
+            
+            {
+                "name": "Figma",
+                "logo": "/assets/langs/figma.png",
+                "dominantColor": "#F24E1E"
+            },
+            {
+                "name": "Flutter",
+                "logo": "/assets/langs/flutter.png",
+                "dominantColor": "#02569B"
+            },
+            {
+                "name": "Expo",
+                "logo": "/assets/langs/expo.png",
+                "dominantColor": "#efefef"
+            },
+            {
+                "name": "MongoDB",
+                "logo": "/assets/langs/mongodb.png",
+                "dominantColor": "#47A248"
+            },
+            {
+                "name": "MySQL",
+                "logo": "/assets/langs/mysql.png"
+            }
+        ]
+    },
+    {
+        "section": "IoT",
+        "items": [
+            { "name": "Linux", "logo": "/assets/langs/linux.png", "dominantColor": "#FCC624" },
+            { "name": "Arduino", "logo": "/assets/langs/arduino.png", "dominantColor": "#00979D" },
+            { "name": "Raspberry Pi", "logo": "/assets/langs/raspberrypi.png", "dominantColor": "#C51A4A" }
+        ]
+    },
+    {
+        "section": "AI / ML",
+        "items": [
+            {
+                "name": "Python",
+                "logo": "/assets/langs/python.png",
+                "dominantColor": "#3776AB"
+            }
+        ]
+    }
+]

@@ -1,103 +1,115 @@
 import Image from "next/image";
+import Section from "@/components/Section";
+import GlassCard from "@/components/GlassCard";
+import SkillChip from "@/components/SkillChip";
+import ProjectCard from "@/components/ProjectCard";
+import { loadLanguages, loadProjects } from "@/lib/loaders";
+import heroBg from "./bg.png";
 
-export default function Home() {
+export default async function Home() {
+  const [langSections, projects] = await Promise.all([
+    loadLanguages(),
+    loadProjects(),
+  ]);
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="flex flex-col gap-24">
+      {/* Hero (strictly first 100vh) */}
+      <div id="hero" className="relative min-h-[100dvh] w-full overflow-hidden flex items-center">
+        {/* Static background image */}
+        <div className="absolute inset-0 -z-10">
+          <Image src={heroBg} alt="" fill priority className="object-cover opacity-80" aria-hidden />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        
+        {/* Constrained content container */}
+        <div className="w-[min(1100px,92%)] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            <GlassCard className="p-8 md:p-10">
+              <div className="flex flex-col gap-4">
+                <span className="text-xs uppercase tracking-[0.25em] text-neutral-400">Portfolio</span>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight">
+                  Sarthak Wadegaonkar
+                </h1>
+                <p className="text-neutral-300 max-w-[60ch]">
+                  Full‑stack developer and AI/ML enthusiast crafting clean, performant experiences across web, mobile, and vision. Glassy minimal UI with tasteful pixel grit.
+                </p>
+                <div className="flex gap-3 pt-2">
+                  <a href="#projects" className="rounded-xl px-4 py-2 text-sm border border-white/20 bg-white/10 backdrop-blur-md backdrop-saturate-125 shadow hover:opacity-90">View Projects</a>
+                  <a href="#skills" className="rounded-xl px-4 py-2 text-sm border border-white/20 hover:bg-white/5">Skills</a>
+                </div>
+              </div>
+            </GlassCard>
+            <div className="relative aspect-[4/3] md:aspect-square w-full">
+              <div className="absolute inset-0 rounded-2xl overflow-hidden flex items-end justify-start border border-white/20">
+                <Image src="/boy.png" alt="boy" width={320} height={320} className="rounded-2xl object-contain" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Skills */}
+      <Section id="skills" title="Skills" subtitle="A curated stack I use to build and ship.">
+        <div className="flex flex-col gap-6">
+          {langSections.map((section) => (
+            <div key={section.section} className="flex flex-col gap-3">
+              <h3 className="text-sm uppercase tracking-wide text-neutral-400">{section.section}</h3>
+              <div className="flex flex-wrap gap-2">
+                {section.items.map((item) => (
+                  <SkillChip key={item.name} name={item.name} logo={item.logo} dominantColor={item.dominantColor} />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Projects */}
+      <Section id="projects" title="Projects" subtitle="Selected work across web, apps, and AI/ML.">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {projects.map((p) => (
+            <ProjectCard
+              key={p.id}
+              name={p.name}
+              description={p.description}
+              languages={p.languages}
+              githubLink={p.githubLink}
+              liveLink={p.liveLink}
+            />
+          ))}
+        </div>
+      </Section>
+
+      {/* About */}
+      <Section id="about" title="About" subtitle="Principles, background, and what I bring to teams.">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <GlassCard className="p-6 md:col-span-2">
+            <p className="text-neutral-300 leading-relaxed">
+              I design and build focused, performant interfaces with an eye for detail—accessibility, motion, and clarity. My work spans full‑stack web, mobile (React Native), and applied AI/ML for computer vision. I value strong fundamentals, thoughtful systems, and clean handoffs.
+            </p>
+          </GlassCard>
+          <GlassCard className="p-6">
+            <ul className="text-sm space-y-2 list-disc pl-5 text-neutral-300">
+              <li>Full‑stack web with React + Tailwind</li>
+              <li>Prototyping in Figma</li>
+              <li>AI/ML pipelines (PyTorch, OpenCV)</li>
+              <li>IoT tinkering (Raspberry Pi, Arduino)</li>
+            </ul>
+          </GlassCard>
+        </div>
+      </Section>
+
+      {/* Contact */}
+      <Section id="contact" title="Contact" subtitle="Let’s build something enduring.">
+        <GlassCard className="p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <p className="text-neutral-300">Available for freelance, collaborations, and full‑time roles.</p>
+          <div className="flex gap-3">
+            {/* TODO: Replace with your actual email / social links */}
+            <a className="glass rounded-xl px-4 py-2 text-sm hover:opacity-90" href="#">Email</a>
+            <a className="rounded-xl px-4 py-2 text-sm border border-[var(--glass-border)] hover:bg-white/5" href="https://github.com/sarthakwade" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </GlassCard>
+      </Section>
     </div>
   );
 }
