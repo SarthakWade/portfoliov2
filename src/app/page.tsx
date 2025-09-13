@@ -3,8 +3,8 @@ import Section from "@/components/Section";
 import GlassCard from "@/components/GlassCard";
 import SkillChip from "@/components/SkillChip";
 import ProjectCard from "@/components/ProjectCard";
+import Hero from "@/components/Hero";
 import { loadLanguages, loadProjects } from "@/lib/loaders";
-import heroBg from "./bg.png";
 
 export default async function Home() {
   const [langSections, projects] = await Promise.all([
@@ -14,39 +14,8 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col gap-24">
-      {/* Hero (strictly first 100vh) */}
-      <div id="hero" className="relative min-h-[100dvh] w-full overflow-hidden flex items-center">
-        {/* Static background image */}
-        <div className="absolute inset-0 -z-10">
-          <Image src={heroBg} alt="" fill priority className="object-cover opacity-80" aria-hidden />
-        </div>
-        
-        {/* Constrained content container */}
-        <div className="w-[min(1100px,92%)] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-            <GlassCard className="p-8 md:p-10">
-              <div className="flex flex-col gap-4">
-                <span className="text-xs uppercase tracking-[0.25em] text-neutral-400">Portfolio</span>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight">
-                  Sarthak Wadegaonkar
-                </h1>
-                <p className="text-neutral-300 max-w-[60ch]">
-                  Full‑stack developer and AI/ML enthusiast crafting clean, performant experiences across web, mobile, and vision. Glassy minimal UI with tasteful pixel grit.
-                </p>
-                <div className="flex gap-3 pt-2">
-                  <a href="#projects" className="rounded-xl px-4 py-2 text-sm border border-white/20 bg-white/10 backdrop-blur-md backdrop-saturate-125 shadow hover:opacity-90">View Projects</a>
-                  <a href="#skills" className="rounded-xl px-4 py-2 text-sm border border-white/20 hover:bg-white/5">Skills</a>
-                </div>
-              </div>
-            </GlassCard>
-            <div className="relative aspect-[4/3] md:aspect-square w-full">
-              <div className="absolute inset-0 rounded-2xl overflow-hidden flex items-end justify-start border border-white/20">
-                <Image src="/boy.png" alt="boy" width={320} height={320} className="rounded-2xl object-contain" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Hero */}
+      <Hero />
 
       {/* Skills */}
       <Section id="skills" title="Skills" subtitle="A curated stack I use to build and ship.">
