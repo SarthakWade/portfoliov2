@@ -1,7 +1,23 @@
 import type { NextConfig } from "next";
 
+// Configure GitHub Pages basePath/assetPrefix when building in Actions
+const isGithubActions = !!process.env.GITHUB_ACTIONS;
+const repo = process.env.GITHUB_REPOSITORY?.split("/")[1];
+const isUserOrOrgPages = !!repo && repo.endsWith(".github.io");
+
 const nextConfig: NextConfig = {
+  // Enable static export for GitHub Pages
+  output: "export",
+  // Set basePath and assetPrefix only when building on GitHub Actions (for <user>.github.io/<repo>)
+  ...(isGithubActions && repo && !isUserOrOrgPages
+    ? {
+        basePath: `/${repo}`,
+        assetPrefix: `/${repo}/`,
+      }
+    : {}),
   images: {
+    // GitHub Pages doesn't support the default Next.js Image Optimization CDN
+    unoptimized: true,
     dangerouslyAllowSVG: true,
     remotePatterns: [
       { protocol: "https", hostname: "cdn.jsdelivr.net" },
