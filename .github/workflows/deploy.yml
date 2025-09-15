@@ -31,16 +31,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
       - name: Install dependencies with Bun
         run: bun install --frozen-lockfile
 
-      - name: Build and export static site
+      - name: Build and export static site (Bun)
         env:
           GITHUB_ACTIONS: true
           GITHUB_REPOSITORY: ${{ github.repository }}
-        run: npm run build:export
+        run: bun run build:export
 
       - name: Add .nojekyll to bypass Jekyll processing
         run: |
