@@ -56,8 +56,15 @@ export default function Hero() {
                 style={{ backgroundImage: `url(${heroBg2.src})` }}
                 aria-hidden
               />
-              {/* Foreground boy image */}
-              <Image src="/boy.png" alt="boy" width={320} height={320} className="relative z-[1] rounded-2xl object-contain" />
+              {/* Foreground boy image (smaller on mobile) */}
+              <Image
+                src="/boy.png"
+                alt="boy"
+                width={320}
+                height={320}
+                sizes="(max-width: 640px) 40vw, (max-width: 768px) 50vw, 320px"
+                className="relative z-[1] rounded-2xl object-contain w-44 sm:w-40 md:w-80 h-auto"
+              />
               {/* Reveal button */}
               <button
                 onClick={() => setRevealed((v) => !v)}

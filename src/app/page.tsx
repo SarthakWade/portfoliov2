@@ -21,9 +21,9 @@ export default async function Home() {
 
       {/* Skills */}
       <Section id="skills" title="Skills" subtitle="A curated stack I use to build and ship.">
-        <div className="flex gap-6 items-center justify-between">
+        <div className="flex flex-col md:flex-row gap-6 md:items-center md:justify-between">
           {/* Skills list (left) */}
-          <div className="flex flex-col gap-6 w-1/2">
+          <div className="flex flex-col gap-6 w-full md:w-1/2">
             {langSections.map((section) => (
               <div key={section.section} className="flex flex-col gap-3">
                 <h3 className="text-sm uppercase tracking-wide text-neutral-400">{section.section}</h3>
@@ -37,7 +37,7 @@ export default async function Home() {
           </div>
 
           {/* Image on the right */}
-          <div className="flex flex-col items-end">
+          <div className="flex flex-col items-center md:items-end mt-2 md:mt-0">
             <LangToggleImage />
           </div>
         </div>
@@ -74,6 +74,7 @@ export default async function Home() {
             width={500}
             height={500}
             className="w-full h-auto rounded-xl"
+            sizes="(max-width: 768px) 100vw, 33vw"
             priority={false}
           />
         </div>
@@ -88,6 +89,7 @@ export default async function Home() {
                 width={800}
                 height={450}
                 className="w-2/3 h-auto rounded-xl"
+                sizes="(max-width: 640px) 66vw, 50vw"
                 priority={false}
                 />
           <Socials />

@@ -44,7 +44,7 @@ const Socials: React.FC = () => {
             rel="noopener noreferrer"
             aria-label={social.name}
             style={{ zIndex: 10 - index }}
-            className="relative -ml-2 first:ml-0 border border-gray-400 rounded-full p-3 lg:p-4 text-white hover:bg-gray-800 transition text-sm lg:text-base"
+            className="relative -ml-2 first:ml-0 border border-gray-400 rounded-full p-4 sm:p-3 lg:p-4 text-white hover:bg-gray-800 transition text-sm sm:text-base"
             title={social.name}
           >
             {social.icon}

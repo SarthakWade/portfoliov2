@@ -14,6 +14,7 @@ export default function LangToggleImage() {
         width={425}
         height={425}
         className="object-cover rounded-2xl rounded-br-none"
+        sizes="(max-width: 640px) 90vw, 425px"
       />
       <button
         onClick={() => setSleepMode((v) => !v)}

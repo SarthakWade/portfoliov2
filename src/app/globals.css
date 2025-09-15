@@ -96,6 +96,15 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Hide scrollbar utility for overflow rows (mobile nav etc.) */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
 /* Hover glow utility using CSS var --glow */
 .glow-hover {
   transition: box-shadow 200ms ease, transform 200ms ease, opacity 200ms ease;
