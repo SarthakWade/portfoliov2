@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import heroBg from "@/app/bg.png";
+import heroBg2 from "@/app/bg2.png";
 import GlassCard from "@/components/GlassCard";
 
 export default function Hero() {
@@ -16,7 +17,7 @@ export default function Hero() {
       </div>
 
       {/* Constrained content container */}
-      <div className="w-[min(1100px,92%)] mx-auto">
+      <div className="w-[min(1100px,92%)] mx-auto mt-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           <GlassCard className="p-8 md:p-10">
             <div className="flex flex-col gap-4">
@@ -25,7 +26,7 @@ export default function Hero() {
                 Sarthak Wadegaonkar
               </h1>
               <p className="text-neutral-300 max-w-[60ch]">
-                Full‑stack developer and AI/ML enthusiast crafting clean, performant experiences across web, mobile, and vision. Glassy minimal UI with tasteful pixel grit.
+                Developing till my <span className="text-[#6F4E37]">coffee</span> arrives.
               </p>
               <div className="flex gap-3 pt-2">
                 <a href="#projects" className="rounded-xl px-4 py-2 text-sm border border-white/20 bg-white/10 backdrop-blur-md backdrop-saturate-125 shadow hover:opacity-90">View Projects</a>
@@ -37,12 +38,12 @@ export default function Hero() {
           {/* Boy card showing a slice of the background, with the boy image in front */}
           <div className="relative aspect-[4/3] md:aspect-square w-full">
             <div
-              className="absolute inset-0 rounded-2xl overflow-hidden flex items-end justify-start border border-white/20"
+              className="absolute inset-0 rounded-2xl overflow-hidden flex items-end justify-start border-2 border-white/20"
             >
               {/* Background slice inside the card */}
               <div
                 className="absolute inset-0 bg-cover bg-center opacity-70"
-                style={{ backgroundImage: `url(${heroBg.src})` }}
+                style={{ backgroundImage: `url(${heroBg2.src})` }}
                 aria-hidden
               />
               {/* Foreground boy image */}
@@ -52,7 +53,7 @@ export default function Hero() {
                 onClick={() => setRevealed((v) => !v)}
                 className="absolute bottom-4 right-4 rounded-xl px-4 py-2 text-sm border border-white/20 bg-white/10 backdrop-blur-md backdrop-saturate-125 shadow hover:opacity-90"
               >
-                {revealed ? "Back to dark" : "Gaze at the sky"}
+                {revealed ? "Clouds can wait" : "Gaze at the sky"}
               </button>
             </div>
           </div>
