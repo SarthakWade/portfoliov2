@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sarthak Wadegaonkar · Portfolio
 
-## Getting Started
+A minimal, performant portfolio built with Next.js (App Router), TypeScript, and Tailwind. Features glass UI, pixel-font accents, responsive sections, and static export for GitHub Pages with a custom domain.
 
-First, run the development server:
+Live: https://sarthak-wadegaonkar.me
 
+## Tech Stack
+- Next.js 15 (App Router) + TypeScript
+- Tailwind CSS v4
+- next/font (Geist, Jersey_10 as `--font-pixel`)
+- Bun for dependency installation and CI
+- GitHub Actions → GitHub Pages (static export)
+
+## Features
+- Responsive hero, skills, projects, about, and contact sections
+- Optimized images for static export; lazy-loading where possible
+- Accessibility-minded (focus-visible, reduced motion fallback)
+- Custom social icons and pixel-style headings
+- Resume modal with PDF embed and fallback open/download
+
+## Development
+
+Install dependencies (Bun recommended):
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run the dev server:
+```bash
+bun dev
+# or
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Scripts
+- `dev` – start dev server (Turbopack)
+- `build` – Next.js production build
+- `build:export` – production build (static export is emitted automatically to `out/` via `output: "export"`)
+- `lint` – run ESLint
 
-## Learn More
+## Project Structure
+```
+src/
+  app/              # App Router, layout, global styles
+  components/       # UI components (Hero, Section, ProjectCard, etc.)
+  lib/              # data loaders (reads public/*.json)
+public/
+  assets/langs/     # logos for skills
+  *.json            # data files (languages, projects)
+  *.gif|*.png|*.jpg # static assets
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Performance Notes
+- Static export (`next.config.ts`: `output: "export"`) with `images.unoptimized = true` for GitHub Pages
+- Limited image variants (`deviceSizes`, `imageSizes`) to reduce export size
+- `LangToggleImage` uses JPG on small screens and when `prefers-reduced-motion` is set, falling back to GIF only on desktop
+- Global initial loader (`InitialLoader`) to avoid jank on first paint
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment (GitHub Pages)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This repo contains a GitHub Actions workflow: `.github/workflows/deploy.yml`.
 
-## Deploy on Vercel
+Pipeline (default branch pushes):
+1. Checkout
+2. Setup Bun + Node
+3. `bun install --frozen-lockfile`
+4. `bun run build:export` → emits `out/`
+5. Upload and deploy to GitHub Pages with `actions/deploy-pages@v4`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Static Export settings (`next.config.ts`):
+- `output: "export"`
+- Auto `basePath`/`assetPrefix` on CI for repo Pages (disabled if a `public/CNAME` is present)
+- `images.unoptimized = true`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Custom Domain
+
+Custom domain is configured via `public/CNAME`:
+```
+sarthak-wadegaonkar.me
+```
+
+DNS records (at your DNS provider):
+- A records (apex/root): 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153
+- Optional: `www` → CNAME to `<username>.github.io`
+
+GitHub → Repo Settings → Pages:
+- Source: GitHub Actions
+- Custom domain: sarthak-wadegaonkar.me
+- Enforce HTTPS: enabled
+
+## Editing Content
+- Skills & language logos: `public/languages.json` or `public/lang.json`
+- Projects: `public/projects.json`
+- Text content: mostly in `src/app/page.tsx` and component files
+
+## License
+MIT
