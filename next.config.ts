@@ -15,9 +15,9 @@ const nextConfig: NextConfig = {
   // Do NOT set basePath if using a custom domain (CNAME present)
   ...(isGithubActions && repo && !isUserOrOrgPages && !hasCustomDomain
     ? {
-        basePath: `/${repo}`,
-        assetPrefix: `/${repo}/`,
-      }
+      basePath: `/${repo}`,
+      assetPrefix: `/${repo}/`,
+    }
     : {}),
   images: {
     // GitHub Pages doesn't support the default Next.js Image Optimization CDN
