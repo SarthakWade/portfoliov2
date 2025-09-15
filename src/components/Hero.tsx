@@ -21,13 +21,23 @@ export default function Hero() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           <GlassCard className="p-8 md:p-10">
             <div className="flex flex-col gap-4">
-              <span className="text-xs uppercase tracking-[0.25em] text-neutral-400">Portfolio</span>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight">
+              <span className="text-md uppercase tracking-[0.25em] text-neutral-400 font-pixel">Portfolio</span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl tracking-wider font-pixel">
                 Sarthak Wadegaonkar
               </h1>
-              <p className="text-neutral-300 max-w-[60ch]">
-                Developing till my <span className="text-[#6F4E37]">coffee</span> arrives.
-              </p>
+              <div className="flex items-end">
+                <p className="text-neutral-300 max-w-[60ch]">
+                  Developing till my <span className="bg-gradient-to-r from-[#FFF7E6] via-[#F5DEB3] to-[#EED9C4] bg-clip-text text-transparent font-pixel text-xl">coffee</span> arrives.
+                  </p>
+                  <Image
+                    src="/coffee.gif"
+                    alt="About animation"
+                    width={20}
+                    height={20}
+                    className="w-10 h-auto rounded-xl"
+                    priority={false}
+                    />
+              </div>
               <div className="flex gap-3 pt-2">
                 <a href="#projects" className="rounded-xl px-4 py-2 text-sm border border-white/20 bg-white/10 backdrop-blur-md backdrop-saturate-125 shadow hover:opacity-90">View Projects</a>
                 <a href="#skills" className="rounded-xl px-4 py-2 text-sm border border-white/20 hover:bg-white/5">Skills</a>

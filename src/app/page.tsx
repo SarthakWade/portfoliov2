@@ -6,6 +6,7 @@ import ProjectCard from "@/components/ProjectCard";
 import Hero from "@/components/Hero";
 import { loadLanguages, loadProjects } from "@/lib/loaders";
 import LangToggleImage from "@/components/LangToggleImage";
+import Socials from "@/components/Socials";
 
 export default async function Home() {
   const [langSections, projects] = await Promise.all([
@@ -79,15 +80,18 @@ export default async function Home() {
       </Section>
 
       {/* Contact */}
-      <Section id="contact" title="Contact" subtitle="Let’s build something enduring.">
-        <GlassCard className="p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <p className="text-neutral-300">Available for freelance, collaborations, and full‑time roles.</p>
-          <div className="flex gap-3">
-            {/* TODO: Replace with your actual email / social links */}
-            <a className="rounded-xl px-4 py-2 text-sm border border-white/20 bg-white/10 backdrop-blur-md backdrop-saturate-125 shadow hover:opacity-90" href="#">Email</a>
-            <a className="rounded-xl px-4 py-2 text-sm border border-white/20 hover:bg-white/5" href="https://github.com/sarthakwade" target="_blank" rel="noreferrer">GitHub</a>
-          </div>
-        </GlassCard>
+      <Section id="contact" title="Contact" subtitle="Let's build something enduring.">
+        <div className="flex flex-col gap-4 justify-center items-center">
+          <Image
+                src="/contact.gif"
+                alt="Contact animation"
+                width={800}
+                height={450}
+                className="w-2/3 h-auto rounded-xl"
+                priority={false}
+                />
+          <Socials />
+        </div>
       </Section>
     </div>
   );

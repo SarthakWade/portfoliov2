@@ -9,7 +9,7 @@ export default function LangToggleImage() {
   return (
     <div className="relative">
       <Image
-        src={sleepMode ? "/sleep.jpg" : "/lang.jpg"}
+        src={sleepMode ? "/sleep.jpg" : "/lang.gif"}
         alt={sleepMode ? "Sleeping" : "Languages collage"}
         width={425}
         height={425}
