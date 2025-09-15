@@ -42,7 +42,7 @@ export default function Hero() {
               <div className="flex gap-3 pt-2">
                 <button
                   onClick={() => setShowResume(true)}
-                  className="rounded-xl px-3 py-1 text-md sm:text-xl border border-white/20 bg-white/10 backdrop-blur-md backdrop-saturate-125 shadow hover:opacity-90 font-pixel tracking-wide"
+                  className="rounded-xl px-3 py-1 text-md sm:text-xl border border-white/20 bg-white/10 backdrop-blur-md backdrop-saturate-125 shadow hover:opacity-90 font-pixel tracking-wide cursor-pointer"
                 >
                   Resume
                 </button>
@@ -73,7 +73,7 @@ export default function Hero() {
               {/* Reveal button */}
               <button
                 onClick={() => setRevealed((v) => !v)}
-                className="absolute bottom-4 right-4 rounded-xl px-4 py-2 text-sm border border-white/20 bg-white/10 backdrop-blur-md backdrop-saturate-125 shadow hover:opacity-90"
+                className="absolute bottom-4 right-4 rounded-xl px-4 py-2 text-sm border border-white/20 bg-white/10 backdrop-blur-md backdrop-saturate-125 shadow hover:opacity-90 cursor-pointer"
               >
                 {revealed ? "Clouds can wait" : "Gaze at the sky"}
               </button>

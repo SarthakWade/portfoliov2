@@ -1,5 +1,7 @@
 import Image from "next/image";
 import GlassCard from "@/components/GlassCard";
+import { TbWindowMaximize } from "react-icons/tb";
+import { FaGithub } from "react-icons/fa";
 
 export type ProjectCardProps = {
   name: string;
@@ -34,10 +36,10 @@ export default function ProjectCard({ name, description, languages, githubLink, 
         <h3 className="text-lg font-semibold tracking-tight">{name}</h3>
         <div className="flex gap-2">
           {liveLink ? (
-            <a className="text-sm hover:opacity-80" href={liveLink} target="_blank" rel="noreferrer">Live</a>
+            <a className="text-sm hover:opacity-80 cursor-pointer" href={liveLink} target="_blank" rel="noreferrer"><TbWindowMaximize className="h-4 w-auto"/></a>
           ) : null}
           {githubLink ? (
-            <a className="text-sm hover:opacity-80" href={githubLink} target="_blank" rel="noreferrer">GitHub</a>
+            <a className="text-sm hover:opacity-80 cursor-pointer" href={githubLink} target="_blank" rel="noreferrer"><FaGithub className="h-4 w-auto"/></a>
           ) : null}
         </div>
       </div>

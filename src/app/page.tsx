@@ -81,7 +81,7 @@ export default async function Home() {
       </Section>
 
       {/* Contact */}
-      <Section id="contact" title="Contact" subtitle="Let's build something enduring.">
+      <Section id="contact" title="Contact" subtitle="Open to opportunities, collaborations & great coffee">
         <div className="flex flex-col gap-4 justify-center items-center">
           <Image
                 src="/contact.gif"
