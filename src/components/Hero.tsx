@@ -8,6 +8,7 @@ import GlassCard from "@/components/GlassCard";
 
 export default function Hero() {
   const [revealed, setRevealed] = useState(false);
+  const [showResume, setShowResume] = useState(false);
 
   return (
     <div id="hero" className="relative min-h-[100dvh] w-full overflow-hidden flex items-center">
@@ -39,8 +40,12 @@ export default function Hero() {
                     />
               </div>
               <div className="flex gap-3 pt-2">
-                <a href="#projects" className="rounded-xl px-4 py-2 text-sm border border-white/20 bg-white/10 backdrop-blur-md backdrop-saturate-125 shadow hover:opacity-90">View Projects</a>
-                <a href="#skills" className="rounded-xl px-4 py-2 text-sm border border-white/20 hover:bg-white/5">Skills</a>
+                <button
+                  onClick={() => setShowResume(true)}
+                  className="rounded-xl px-3 py-1 text-md sm:text-xl border border-white/20 bg-white/10 backdrop-blur-md backdrop-saturate-125 shadow hover:opacity-90 font-pixel tracking-wide"
+                >
+                  Resume
+                </button>
               </div>
             </div>
           </GlassCard>
@@ -76,6 +81,61 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      {/* Resume Modal */}
+      {showResume && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Resume"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+        >
+          <div className="absolute inset-0 bg-black/70" onClick={() => setShowResume(false)} />
+          {/* Toolbar above the popup */}
+          <div className="fixed top-6 left-0 right-0 z-[60] justify-center px-4 hidden sm:flex">
+            <div className="flex items-center gap-3 rounded-xl border border-white/30 bg-black text-white backdrop-blur-md px-3 py-2 shadow-lg">
+              <span className="hidden sm:inline text-sm opacity-80">resume.pdf</span>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-md px-2 py-1 text-xs border border-white/30 bg-white/10 hover:bg-white/20"
+              >
+                Open in new tab
+              </a>
+              <a
+                href="/resume.pdf"
+                download
+                className="rounded-md px-2 py-1 text-xs border border-white/30 bg-white/10 hover:bg-white/20"
+              >
+                Download
+              </a>
+              <button
+                onClick={() => setShowResume(false)}
+                className="sm:hidden rounded-md px-2 py-1 text-xs border border-white/30 bg-white/10 hover:bg-white/20"
+                aria-label="Close resume"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+          <div className="relative bg-white/5 border border-white/20 rounded-none sm:rounded-2xl backdrop-blur-xl backdrop-saturate-125 shadow-2xl w-full max-w-[100vw] sm:max-w-4xl h-[90vh] sm:h-[80vh] overflow-hidden">
+            {/* Prefer <object> for broader mobile support with fallback */}
+            <object
+              data="/resume.pdf#view=FitH"
+              type="application/pdf"
+              className="w-full h-full"
+            >
+              <div className="w-full h-full flex flex-col items-center justify-center gap-3 text-center p-4">
+                <p className="text-white/90">PDF preview isn’t supported on this device.</p>
+                <div className="flex gap-2">
+                  <a href="/resume.pdf" target="_blank" rel="noreferrer" className="rounded-md px-3 py-2 text-sm border border-white/30 bg-white/10 hover:bg-white/20">Open in new tab</a>
+                  <a href="/resume.pdf" download className="rounded-md px-3 py-2 text-sm border border-white/30 bg-white/10 hover:bg-white/20">Download</a>
+                </div>
+              </div>
+            </object>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
