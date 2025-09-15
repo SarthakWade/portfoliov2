@@ -25,7 +25,7 @@ const jersey = Jersey_10({
 export const metadata: Metadata = {
   title: "Sarthak Wadegaonkar · Portfolio",
   description:
-    "Minimal, professional portfolio showcasing projects in Web, AI/ML, and IoT with a classy glass UI and pixel accents.",
+    "I build for the brew, and the brew builds me.",
   icons: {
     icon: "/logo.png",
     shortcut: "/logo.png",

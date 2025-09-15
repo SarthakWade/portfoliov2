@@ -8,9 +8,9 @@ export default function Header() {
           {"{ S }"}
         </Link>
         <div className="flex gap-2 sm:gap-4 text-md sm:text-2xl font-pixel overflow-x-auto sm:overflow-visible max-w-[60%] sm:max-w-none no-scrollbar">
-          <a href="#about" className="hover:opacity-80 shrink-0">About</a>
           <a href="#skills" className="hover:opacity-80 shrink-0">Skills</a>
           <a href="#projects" className="hover:opacity-80 shrink-0">Projects</a>
+          <a href="#about" className="hover:opacity-80 shrink-0">About</a>
           <a href="#contact" className="hover:opacity-80 shrink-0">Contact</a>
         </div>
       </nav>
