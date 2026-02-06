@@ -3,7 +3,6 @@ import { Geist, Geist_Mono, Jersey_10 } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import InitialLoader from "@/components/InitialLoader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,7 +42,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${jersey.variable} antialiased relative`}
       >
-        <InitialLoader />
         <Header />
         <main className="pt-0 pb-12 flex flex-col gap-16">{children}</main>
         <Footer />

@@ -3,134 +3,71 @@
     "id": 1,
     "name": "INR_Technologies Website",
     "description": "Developed a responsive static website using HTML, CSS, and JavaScript for a client, focusing on clean UI and fast performance without backend dependencies.",
-    "tags": ["Website Development"],
     "languages": [
-      {
-        "name": "HTML",
-        "logo": "/assets/langs/html.png"
-      },
-      {
-        "name": "CSS",
-        "logo": "/assets/langs/css.png"
-      },
-      {
-        "name": "JavaScript",
-        "logo": "/assets/langs/js.png"
-      }
+      { "name": "HTML", "logo": "/assets/langs/html.png" },
+      { "name": "CSS", "logo": "/assets/langs/css.png" },
+      { "name": "JavaScript", "logo": "/assets/langs/js.png" }
     ],
     "githubLink": "https://github.com/SarthakWade/INR_Technologies_Website",
-    "liveLink": "https://sarthakwade.github.io/INR_Technologies_Website/",
-    "featured": false
+    "liveLink": "https://sarthakwade.github.io/INR_Technologies_Website/"
   },
   {
     "id": 2,
     "name": "Fyntrest (in work)",
     "description": "Currently working on a responsive startup website frontend with React and Tailwind MongoDB and Node.js. Focuses on delivering a modern and scalable UI for future integration with backend services.",
-    "tags": ["Web Development", "MERN"],
     "languages": [
-      {
-        "name": "React",
-        "logo": "/assets/langs/react.png"
-      },
-      {
-        "name": "Tailwind CSS",
-        "logo": "/assets/langs/tailwind.png"
-      },
-      {
-        "name": "JavaScript",
-        "logo": "/assets/langs/js.png"
-      }
+      { "name": "React", "logo": "/assets/langs/react.png" },
+      { "name": "Tailwind CSS", "logo": "/assets/langs/tailwind.png" },
+      { "name": "JavaScript", "logo": "/assets/langs/js.png" }
     ],
     "githubLink": null,
-    "liveLink": "https://fyntrest.com/",
-    "featured": false
+    "liveLink": "https://fyntrest.com/"
   },
   {
     "id": 3,
     "name": "React-native App (in work)",
     "description": "Assigned to develop the frontend for a client's app using React native in typescript and expo, ensuring a smooth UI and responsiveness across devices. Coordinated with backend developers for API integration.",
-    "tags": ["App Development"],
     "languages": [
-      {
-        "name": "React Native",
-        "logo": "/assets/langs/react.png"
-      },
-      {
-        "name": "TypeScript",
-        "logo": "/assets/langs/typescript.png"
-      },
-      {
-        "name": "Expo",
-        "logo": "/assets/langs/expo.png"
-      }
+      { "name": "React Native", "logo": "/assets/langs/react.png" },
+      { "name": "TypeScript", "logo": "/assets/langs/typescript.png" },
+      { "name": "Expo", "logo": "/assets/langs/expo.png" }
     ],
     "githubLink": null,
-    "liveLink": null,
-    "featured": false
+    "liveLink": null
   },
   {
     "id": 4,
     "name": "Drone Image Processing",
     "description": "Flask-based system to process drone-captured videos by comparing frames to detect changes such as new buildings, vehicles, or people. Deployed as a web service for accessibility.",
-    "tags": ["Computer Vision", "Web Development"],
     "languages": [
-      {
-        "name": "Python",
-        "logo": "/assets/langs/python.png"
-      },
-      {
-        "name": "Flask",
-        "logo": "/assets/langs/flask.png"
-      },
-      {
-        "name": "OpenCV",
-        "logo": "/assets/langs/opencv.png"
-      }
+      { "name": "Python", "logo": "/assets/langs/python.png" },
+      { "name": "Flask", "logo": "/assets/langs/flask.png" },
+      { "name": "OpenCV", "logo": "/assets/langs/opencv.png" }
     ],
     "githubLink": null,
-    "liveLink": null,
-    "featured": false
+    "liveLink": null
   },
   {
     "id": 5,
     "name": "Laptop Ads Project",
     "description": "Developed a system to detect laptop backs and replace them with digital ads for a news channel. Implemented bounding box detection and perspective correction using computer vision.",
-    "tags": ["Computer Vision", "AI/ML"],
     "languages": [
-      {
-        "name": "Python",
-        "logo": "/assets/langs/python.png"
-      },
-      {
-        "name": "OpenCV",
-        "logo": "/assets/langs/opencv.png"
-      }
+      { "name": "Python", "logo": "/assets/langs/python.png" },
+      { "name": "OpenCV", "logo": "/assets/langs/opencv.png" }
     ],
     "githubLink": null,
-    "liveLink": null,
-    "featured": false
+    "liveLink": null
   },
   {
     "id": 6,
     "name": "Food Classification Research",
     "description": "Contributed to a research paper comparing YOLOv8n, InceptionV3, and VGG19 for Indian meal classification. Conducted experiments, analyzed results, and helped author the publication.",
-    "tags": ["AI/ML", "Research"],
     "languages": [
-      {
-        "name": "Python",
-        "logo": "/assets/langs/python.png"
-      },
-      {
-        "name": "PyTorch",
-        "logo": "/assets/langs/pytorch.png"
-      },
-      {
-        "name": "TensorFlow",
-        "logo": "/assets/langs/tensorflow.png"
-      }
+      { "name": "Python", "logo": "/assets/langs/python.png" },
+      { "name": "PyTorch", "logo": "/assets/langs/pytorch.png" },
+      { "name": "TensorFlow", "logo": "/assets/langs/tensorflow.png" }
     ],
     "githubLink": null,
-    "liveLink": null,
-    "featured": false
+    "liveLink": null
   }
 ]

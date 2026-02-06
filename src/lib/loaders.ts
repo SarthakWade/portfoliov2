@@ -17,11 +17,9 @@ export type Project = {
   id: number;
   name: string;
   description: string;
-  tags: string[];
   languages: { name: string; logo: string }[];
   githubLink: string | null;
   liveLink: string | null;
-  featured: boolean;
 };
 
 async function readPublicJson<T>(fileName: string): Promise<T> {

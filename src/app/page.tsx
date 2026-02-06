@@ -7,6 +7,8 @@ import Hero from "@/components/Hero";
 import { loadLanguages, loadProjects } from "@/lib/loaders";
 import LangToggleImage from "@/components/LangToggleImage";
 import Socials from "@/components/Socials";
+import { SimpleErrorBoundary } from "@/components/SimpleErrorBoundary";
+import GitHubCalendarClient from "@/components/GitHubCalendarClient";
 
 export default async function Home() {
   const [langSections, projects] = await Promise.all([
@@ -41,6 +43,13 @@ export default async function Home() {
             <LangToggleImage />
           </div>
         </div>
+      </Section>
+
+      {/* GitHub Activity */}
+      <Section id="github" title="Activity" subtitle="Code doesn't sleep, and apparently neither do I.">
+        <SimpleErrorBoundary>
+        <GitHubCalendarClient />
+        </SimpleErrorBoundary>
       </Section>
 
       {/* Projects */}

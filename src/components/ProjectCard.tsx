@@ -31,39 +31,56 @@ export default function ProjectCard({ name, description, languages, githubLink, 
   };
 
   return (
-    <GlassCard className="p-5 flex flex-col gap-3">
-      <div className="flex items-start justify-between gap-3">
+    <GlassCard className="p-5 flex flex-col gap-4 h-full">
+      <div className="flex flex-col gap-3 flex-grow">
         <h3 className="text-lg font-semibold tracking-tight">{name}</h3>
-        <div className="flex gap-2">
-          {liveLink ? (
-            <a className="text-sm hover:opacity-80 cursor-pointer" href={liveLink} target="_blank" rel="noreferrer"><TbWindowMaximize className="h-4 w-auto"/></a>
-          ) : null}
-          {githubLink ? (
-            <a className="text-sm hover:opacity-80 cursor-pointer" href={githubLink} target="_blank" rel="noreferrer"><FaGithub className="h-4 w-auto"/></a>
-          ) : null}
+        <p className="text-sm text-neutral-300 leading-relaxed">{description}</p>
+        <div className="flex flex-wrap gap-2 mt-1">
+          {languages.map((l) => {
+            const color = colorFor(l.name);
+            const bg = color ? `${color}20` : undefined;
+            return (
+              <div
+                key={l.name}
+                className="rounded-lg px-2 py-1 flex items-center gap-1 border backdrop-blur-md backdrop-saturate-125 shadow transition-all hover:-translate-y-[1px] hover:shadow-lg"
+                style={{
+                  borderColor: color,
+                  background: bg,
+                }}
+              >
+                <div className="relative h-4 w-4">
+                  <Image src={l.logo} alt={l.name} fill sizes="16px" className="object-contain" />
+                </div>
+                <span className="text-xs text-white">{l.name}</span>
+              </div>
+            );
+          })}
         </div>
       </div>
-      <p className="text-sm text-neutral-300 leading-relaxed">{description}</p>
-      <div className="flex flex-wrap gap-2 mt-1">
-        {languages.map((l) => {
-          const color = colorFor(l.name);
-          const bg = color ? `${color}20` : undefined;
-          return (
-            <div
-              key={l.name}
-              className="rounded-lg px-2 py-1 flex items-center gap-1 border backdrop-blur-md backdrop-saturate-125 shadow transition-all hover:-translate-y-[1px] hover:shadow-lg"
-              style={{
-                borderColor: color,
-                background: bg,
-              }}
-            >
-              <div className="relative h-4 w-4">
-                <Image src={l.logo} alt={l.name} fill sizes="16px" className="object-contain" />
-              </div>
-              <span className="text-xs text-white">{l.name}</span>
-            </div>
-          );
-        })}
+
+      <div className="flex gap-3 mt-auto pt-2">
+        {githubLink && (
+          <a
+            className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium transition-all hover:bg-white/20 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+            href={githubLink}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaGithub className="h-4 w-4" />
+            <span>Code</span>
+          </a>
+        )}
+        {liveLink && (
+          <a
+            className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium transition-all hover:bg-white/20 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+            href={liveLink}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <TbWindowMaximize className="h-4 w-4" />
+            <span>Live</span>
+          </a>
+        )}
       </div>
     </GlassCard>
   );
