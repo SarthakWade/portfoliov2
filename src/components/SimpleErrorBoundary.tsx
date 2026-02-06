@@ -14,9 +14,8 @@ export class SimpleErrorBoundary extends React.Component<
   static getDerivedStateFromError() {
     return { hasError: true };
   }
-  componentDidCatch(error: any, info: any) {
+  componentDidCatch(error: Error, info: React.ErrorInfo) {
     if (process.env.NODE_ENV !== "production") {
-      // eslint-disable-next-line no-console
       console.error("ErrorBoundary caught an error", error, info);
     }
   }

@@ -12,6 +12,7 @@ export type ProjectCardProps = {
 };
 
 export default function ProjectCard({ name, description, languages, githubLink, liveLink }: ProjectCardProps) {
+  const ghPalette = ["#131C27", "#1C353C", "#294F58", "#357571", "#48BA9F"];
   const colorFor = (n: string): string | undefined => {
     const key = n.trim().toLowerCase();
     const map: Record<string, string> = {
@@ -31,20 +32,26 @@ export default function ProjectCard({ name, description, languages, githubLink, 
   };
 
   return (
-    <GlassCard className="p-5 flex flex-col gap-4 h-full">
+    <GlassCard
+      className="p-5 flex flex-col gap-4 h-full relative overflow-hidden"
+      style={{
+        border: `1px solid ${ghPalette[1]}`,
+        backdropFilter: "blur(16px)",
+      }}
+    >
       <div className="flex flex-col gap-3 flex-grow">
-        <h3 className="text-lg font-semibold tracking-tight">{name}</h3>
-        <p className="text-sm text-neutral-300 leading-relaxed">{description}</p>
+        <h3 className="text-lg font-semibold tracking-tight text-white">{name}</h3>
+        <p className="text-sm text-neutral-200 leading-relaxed">{description}</p>
         <div className="flex flex-wrap gap-2 mt-1">
           {languages.map((l) => {
             const color = colorFor(l.name);
-            const bg = color ? `${color}20` : undefined;
+            const bg = color ? `${color}1f` : "#ffffff12";
             return (
               <div
                 key={l.name}
                 className="rounded-lg px-2 py-1 flex items-center gap-1 border backdrop-blur-md backdrop-saturate-125 shadow transition-all hover:-translate-y-[1px] hover:shadow-lg"
                 style={{
-                  borderColor: color,
+                  borderColor: color || ghPalette[4],
                   background: bg,
                 }}
               >
@@ -61,10 +68,15 @@ export default function ProjectCard({ name, description, languages, githubLink, 
       <div className="flex gap-3 mt-auto pt-2">
         {githubLink && (
           <a
-            className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium transition-all hover:bg-white/20 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+            className="flex-1 flex items-center justify-center gap-2 rounded-xl border px-4 py-2 text-sm font-medium transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             href={githubLink}
             target="_blank"
             rel="noreferrer"
+            style={{
+              borderColor: `${ghPalette[4]}66`,
+              background: `${ghPalette[2]}33`,
+              color: "#E9FAF5",
+            }}
           >
             <FaGithub className="h-4 w-4" />
             <span>Code</span>
@@ -72,10 +84,15 @@ export default function ProjectCard({ name, description, languages, githubLink, 
         )}
         {liveLink && (
           <a
-            className="flex-1 flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium transition-all hover:bg-white/20 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+            className="flex-1 flex items-center justify-center gap-2 rounded-xl border px-4 py-2 text-sm font-medium transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             href={liveLink}
             target="_blank"
             rel="noreferrer"
+            style={{
+              borderColor: `${ghPalette[4]}66`,
+              background: `${ghPalette[3]}33`,
+              color: "#E9FAF5",
+            }}
           >
             <TbWindowMaximize className="h-4 w-4" />
             <span>Live</span>
