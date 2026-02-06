@@ -18,13 +18,17 @@ const customTheme: ThemeInput = {
 
 const BAR_COUNT = 40;
 
-export default function GitHubCalendar() {
-  const [data, setData] = useState<Activity[]>([]);
-  const [loading, setLoading] = useState(true);
+type Props = { initialData?: Activity[] };
+
+export default function GitHubCalendar({ initialData = [] }: Props) {
+  const [data, setData] = useState<Activity[]>(initialData);
+  const [loading, setLoading] = useState(initialData.length === 0);
   const [error, setError] = useState(false);
   const [barHeights, setBarHeights] = useState<number[]>([]);
 
   useEffect(() => {
+    if (initialData.length) return;
+
     const controller = new AbortController();
     async function fetchData() {
       try {
@@ -75,7 +79,7 @@ export default function GitHubCalendar() {
         }
       }
     };
-  }, []);
+  }, [initialData.length]);
 
   useEffect(() => {
     if (loading) {

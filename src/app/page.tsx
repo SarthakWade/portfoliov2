@@ -5,15 +5,17 @@ import SkillChip from "@/components/SkillChip";
 import ProjectCard from "@/components/ProjectCard";
 import Hero from "@/components/Hero";
 import { loadLanguages, loadProjects } from "@/lib/loaders";
+import { loadContributions } from "@/lib/github";
 import LangToggleImage from "@/components/LangToggleImage";
 import Socials from "@/components/Socials";
 import { SimpleErrorBoundary } from "@/components/SimpleErrorBoundary";
 import GitHubCalendarClient from "@/components/GitHubCalendarClient";
 
 export default async function Home() {
-  const [langSections, projects] = await Promise.all([
+  const [langSections, projects, contributions] = await Promise.all([
     loadLanguages(),
     loadProjects(),
+    loadContributions(),
   ]);
 
   return (
@@ -48,7 +50,7 @@ export default async function Home() {
       {/* GitHub Activity */}
       <Section id="github" title="Activity" subtitle="Code doesn't sleep, and apparently neither do I.">
         <SimpleErrorBoundary>
-        <GitHubCalendarClient />
+        <GitHubCalendarClient initialData={contributions || undefined} />
         </SimpleErrorBoundary>
       </Section>
 
@@ -77,14 +79,15 @@ export default async function Home() {
             </p>
             <p>So yeah, thats about it.</p>
           </GlassCard>
-          <Image
-            src="/about.gif"
-            alt="About animation"
+          <video
+            src="/about.webm"
             width={500}
             height={500}
             className="w-full h-auto rounded-xl"
-            sizes="(max-width: 768px) 100vw, 33vw"
-            priority={false}
+            playsInline
+            autoPlay
+            muted
+            loop
           />
         </div>
       </Section>
@@ -92,15 +95,16 @@ export default async function Home() {
       {/* Contact */}
       <Section id="contact" title="Contact" subtitle="Open to opportunities, collaborations & great coffee">
         <div className="flex flex-col gap-4 justify-center items-center">
-          <Image
-                src="/contact.gif"
-                alt="Contact animation"
-                width={800}
-                height={450}
-                className="w-2/3 h-auto rounded-xl"
-                sizes="(max-width: 640px) 66vw, 50vw"
-                priority={false}
-                />
+          <video
+            src="/contact.webm"
+            width={800}
+            height={450}
+            className="w-2/3 h-auto rounded-xl"
+            playsInline
+            autoPlay
+            muted
+            loop
+          />
           <Socials />
         </div>
       </Section>

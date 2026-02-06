@@ -30,14 +30,16 @@ export default function Hero() {
                 <p className="text-neutral-300 max-w-[60ch]">
                   Developing till my <span className="bg-gradient-to-r from-[#FFF7E6] via-[#F5DEB3] to-[#EED9C4] bg-clip-text text-transparent font-pixel text-xl">coffee</span> arrives.
                   </p>
-                  <Image
-                    src="/coffee.gif"
-                    alt="About animation"
-                    width={20}
-                    height={20}
+                  <video
+                    src="/coffee.webm"
+                    width={40}
+                    height={40}
                     className="w-10 h-auto rounded-xl"
-                    priority={false}
-                    />
+                    playsInline
+                    autoPlay
+                    muted
+                    loop
+                  />
               </div>
               <div className="flex gap-3 pt-2">
                 <button

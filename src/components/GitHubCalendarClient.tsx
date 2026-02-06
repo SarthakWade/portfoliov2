@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import type { Activity } from "react-activity-calendar";
 
 const GitHubCalendar = dynamic(() => import("@/components/GitHubCalendar"), {
   ssr: false,
@@ -13,6 +14,6 @@ const GitHubCalendar = dynamic(() => import("@/components/GitHubCalendar"), {
   ),
 });
 
-export default function GitHubCalendarClient() {
-  return <GitHubCalendar />;
+export default function GitHubCalendarClient({ initialData }: { initialData?: Activity[] }) {
+  return <GitHubCalendar initialData={initialData} />;
 }

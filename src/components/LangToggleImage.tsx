@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 
 export default function LangToggleImage() {
@@ -8,14 +7,28 @@ export default function LangToggleImage() {
 
   return (
     <div className="relative">
-      <Image
-        src={sleepMode ? "/sleep.jpg" : "/lang.gif"}
-        alt={sleepMode ? "Sleeping" : "Languages collage"}
-        width={425}
-        height={425}
-        className="object-cover rounded-2xl rounded-br-none"
-        sizes="(max-width: 640px) 90vw, 425px"
-      />
+      {sleepMode ? (
+        <img
+          src="/sleep.jpg"
+          alt="Sleeping"
+          width={425}
+          height={425}
+          className="object-cover rounded-2xl rounded-br-none"
+          loading="lazy"
+          decoding="async"
+        />
+      ) : (
+        <video
+          src="/lang.webm"
+          className="object-cover rounded-2xl rounded-br-none w-[425px] max-w-full"
+          width={425}
+          height={425}
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+      )}
       <button
         onClick={() => setSleepMode((v) => !v)}
         className="absolute bottom-2 right-2 border-2
